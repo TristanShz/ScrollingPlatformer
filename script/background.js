@@ -1,12 +1,9 @@
 export default class Background {
-  constructor(ctx) {
-    this.bg_l1 = new Image();
-    this.bg_l2 = new Image();
-    this.bg_l3 = new Image();
-    this.bg_l4 = new Image();
-    this.bg_l5 = new Image();
-    this.bg_l6 = new Image();
-
+  constructor() {
+    this.position = {
+      x: 0,
+      y: 0,
+    };
     this.imgSrc = [
       "./assets/l1_background.png",
       "./assets/l2_trees01.png",
@@ -15,5 +12,13 @@ export default class Background {
       "./assets/l5_grass02.png",
       "./assets/l6_fog.png",
     ];
+  }
+
+  draw(ctx) {
+    for (let i = 0; i < this.imgSrc.length; i++) {
+      let img = new Image();
+      img.src = this.imgSrc[i];
+      ctx.drawImage(img, this.position.x, 0);
+    }
   }
 }

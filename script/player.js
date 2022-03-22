@@ -1,25 +1,40 @@
+import { detectCollision } from "/script/detectCollision.js";
+
 export default class Player {
   constructor(game) {
     this.game = game;
-    this.width = 50;
-    this.height = 50;
+    this.width = 145;
+    this.height = 196;
 
     this.position = {
-      x: 0,
+      x: 110,
       y: this.game.gameHeight - this.height - 800,
     };
-    this.speed = 10;
+    this.speed = 5;
     this.gravity = 0.5;
     this.velocity = {
       x: 0,
       y: 1,
     };
     this.direction = 0;
+    this.image = new Image();
+    this.image.src = "./assets/spriteWalk.png";
+    this.frame = 0;
   }
 
   draw(ctx) {
     ctx.fillStyle = "red";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    ctx.drawImage(
+      this.image,
+      145 * this.frame,
+      0,
+      145,
+      196,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 
   moveLeft() {
@@ -31,8 +46,7 @@ export default class Player {
   }
 
   jump() {
-    this.velocity.y += -10;
-    console.log("Boump");
+    this.velocity.y += -18;
   }
 
   stop() {
@@ -40,13 +54,40 @@ export default class Player {
   }
 
   update() {
+    if (this.frame >= 11) this.frame = 0;
+    this.frame++;
     this.position.y += this.velocity.y;
     this.velocity.y += this.gravity;
-
     this.position.x += this.velocity.x;
-    if (this.position.y + this.height >= this.game.gameHeight) {
+
+    //If player is on the ground, stop decreasing velocity
+    if (
+      this.position.y + this.height + this.velocity.y >=
+      this.game.gameHeight
+    ) {
       this.position.y = this.game.gameHeight - this.height;
       this.velocity.y = 0;
+    }
+
+    this.game.platforms.forEach((element) => {
+      if (detectCollision(this, element)) {
+        this.velocity.y = 0;
+      }
+    });
+    //Setting limit for the player movement and that's where the background start scrolling
+    if (this.position.x + this.velocity.x > 400) {
+      this.position.x = 400;
+      this.game.platforms.forEach((element) => {
+        element.position.x += -this.speed;
+      });
+      // this.game.background.position.x += -3;
+    }
+    if (this.position.x + this.velocity.x < 100) {
+      this.position.x = 100;
+      this.game.platforms.forEach((element) => {
+        element.position.x += this.speed;
+        // this.game.background.position.x += 3;
+      });
     }
   }
 }
