@@ -1,5 +1,6 @@
-export default class Background {
-  constructor() {
+export class Background {
+  constructor(game) {
+    this.game = game;
     this.position = {
       x: 0,
       y: 0,
@@ -9,6 +10,12 @@ export default class Background {
   }
 
   draw(ctx) {
-    ctx.drawImage(this.img, this.position.x, this.position.y);
+    ctx.drawImage(
+      this.img,
+      this.position.x,
+      this.position.y,
+      this.img.width,
+      this.game.gameHeight
+    );
   }
 }

@@ -1,4 +1,4 @@
-export default class Platform {
+export class Platform {
   constructor(x, y, width, height, img) {
     this.position = {
       x: x,

@@ -1,20 +1,20 @@
-import Background from "/script/background.js";
-import Player from "/script/player.js";
-import InputHandler from "/script/input.js";
-import Platform from "/script/platform.js";
-import images from "/script/images.js";
-import Foreground from "/script/foreground.js";
+import { Background } from "./background.js";
+import { Player } from "./player.js";
+import { InputHandler } from "./input.js";
+import { Platform } from "./platform.js";
+import { images } from "./images.js";
+import { Foreground } from "./foreground.js";
 
-export default class Game {
+export class Game {
   constructor(gameWidth, gameHeight) {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
     this.images = images;
-    this.background = new Background();
-    this.foreground = new Foreground();
   }
 
   start() {
+    this.background = new Background(this);
+    this.foreground = new Foreground(this);
     this.platforms = [
       new Platform(0, this.gameHeight - 150, 4000, 200, this.images.ground),
       new Platform(500, 550, 300, 150, this.images.platform),

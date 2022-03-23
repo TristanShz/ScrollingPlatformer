@@ -1,4 +1,4 @@
-export default class InputHandler {
+export class InputHandler {
   constructor(game) {
     document.addEventListener("keydown", (event) => {
       switch (event.keyCode) {
@@ -10,9 +10,11 @@ export default class InputHandler {
         case 68:
           game.player.moveRight();
           break;
-        //UP key
+        //ESPACE key
         case 32:
+          console.log(game.player.velocity);
           if (game.player.velocity.y === 0) game.player.jump();
+          if (game.player.isInJump) game.player.plane();
           break;
         //DOWN key
         case 40:

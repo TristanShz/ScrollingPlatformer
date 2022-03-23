@@ -23,8 +23,8 @@ export function detectCollision(player, object) {
   if (
     playerBottom <= objectTop + 50 &&
     playerBottom + player.velocity.y >= objectTop + 50 &&
-    playerRight >= objectLeft &&
-    playerLeft <= objectRight
+    playerRight - 70 >= objectLeft &&
+    playerLeft + 70 <= objectRight
   ) {
     return true;
   } else {

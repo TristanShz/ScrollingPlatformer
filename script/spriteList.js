@@ -1,0 +1,58 @@
+export const spriteList = {
+  walk: {
+    src: "./assets/spriteWalk.png",
+    cropSize: 145,
+    spriteLength: 12,
+    spriteWidth: 145,
+    spriteHeight: 196,
+  },
+  reverseWalk: {
+    src: "./assets/reverseWalk.png",
+    cropSize: 145,
+    spriteLength: 12,
+    spriteWidth: 145,
+    spriteHeight: 196,
+  },
+  idle: {
+    src: "./assets/spriteIdle.png",
+    cropSize: 145,
+    spriteLength: 26,
+    spriteWidth: 145,
+    spriteHeight: 189,
+  },
+  reverseIdle: {
+    src: "./assets/reverseIdle.png",
+    cropSize: 145,
+    spriteLength: 26,
+    spriteWidth: 145,
+    spriteHeight: 189,
+  },
+  jump: {
+    src: "./assets/spriteJump.png",
+    cropSize: 155,
+    spriteLength: 7,
+    spriteWidth: 155,
+    spriteHeight: 195,
+  },
+  reverseJump: {
+    src: "./assets/reverseJump.png",
+    cropSize: 155,
+    spriteLength: 7,
+    spriteWidth: 155,
+    spriteHeight: 195,
+  },
+  spriteParachute: {
+    src: "./assets/spriteParachute.png",
+    cropSize: 274,
+    spriteLength: 26,
+    spriteWidth: 274,
+    spriteHeight: 335,
+  },
+  reverseParachute: {
+    src: "./assets/reverseParachute.png",
+    cropSize: 274,
+    spriteLength: 26,
+    spriteWidth: 274,
+    spriteHeight: 335,
+  },
+};

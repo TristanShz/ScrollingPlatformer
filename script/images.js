@@ -4,11 +4,9 @@ function createImage(src) {
   return img;
 }
 
-const images = {
+export const images = {
   platform: createImage("./assets/platform.png"),
   ground: createImage("./assets/ground.png"),
   littleHill: createImage("./assets/littleHill.png"),
   highHill: createImage("./assets/highHill.png"),
 };
-
-export default images;
