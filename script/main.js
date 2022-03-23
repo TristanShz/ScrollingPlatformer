@@ -11,7 +11,7 @@ const GAME_HEIGHT = innerHeight;
 canvas.width = GAME_WIDTH;
 canvas.height = GAME_HEIGHT;
 
-const fps = 25;
+const fps = 30;
 const interval = 1000 / fps;
 let lastTime = new Date().getTime();
 let currentTime = 0;
