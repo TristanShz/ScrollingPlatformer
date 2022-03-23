@@ -1,11 +1,11 @@
-export default class Background {
+export default class Foreground {
   constructor() {
     this.position = {
       x: 0,
       y: 0,
     };
     this.img = new Image();
-    this.img.src = "./assets/background.png";
+    this.img.src = "./assets/foreground.png";
   }
 
   draw(ctx) {

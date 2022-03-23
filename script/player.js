@@ -55,7 +55,6 @@ export default class Player {
 
   update() {
     if (this.frame >= 11) this.frame = 0;
-    this.frame++;
     this.position.y += this.velocity.y;
     this.velocity.y += this.gravity;
     this.position.x += this.velocity.x;
