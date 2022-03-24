@@ -14,4 +14,6 @@ export const images = {
   spriteJump: "./assets/spriteJump.png",
   spriteParachute: "./assets/spriteParachute.png",
   spriteWalk: "./assets/spriteWalk.png",
+  ground_section01: "./assets/ground_section01.png",
+  ground_section02: "./assets/ground_section02.png",
 };

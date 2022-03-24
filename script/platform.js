@@ -1,5 +1,5 @@
 export class Platform {
-  constructor(x, y, width, height, img) {
+  constructor(x, y, width, height, img, colisionGap) {
     this.position = {
       x: x,
       y: y,
@@ -8,6 +8,7 @@ export class Platform {
     this.width = width;
     this.height = height;
     this.img = img;
+    this.colisionGap = colisionGap;
   }
 
   draw(ctx) {

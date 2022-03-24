@@ -17,14 +17,23 @@ export class Game {
     this.foreground = new Foreground(this);
     this.platforms = [
       new Platform(
-        0,
-        this.gameHeight - 150,
-        4000,
-        200,
-        this.platformImages.ground
+        -50,
+        this.gameHeight - 200,
+        1180,
+        250,
+        this.platformImages.groundSection02,
+        90
       ),
-      new Platform(500, 550, 300, 150, this.platformImages.platform),
-      new Platform(900, 350, 300, 150, this.platformImages.platform),
+      new Platform(1300, 600, 300, 133, this.platformImages.platform, 50),
+      new Platform(1700, 400, 300, 133, this.platformImages.platform, 50),
+      new Platform(
+        2200,
+        this.gameHeight - 200,
+        2137,
+        250,
+        this.platformImages.groundSection01,
+        80
+      ),
     ];
     this.player = new Player(this);
     this.gameObjects = [...this.platforms, this.player];

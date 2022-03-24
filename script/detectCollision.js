@@ -9,6 +9,7 @@ export function detectCollision(player, object) {
   const objectLeft = object.position.x;
   const objectRight = object.position.x + object.width;
 
+  const colisionGap = object.colisionGap;
   //   if (
   //     playerLeft >= objectLeft &&
   //     playerLeft <= objectRight &&
@@ -21,8 +22,8 @@ export function detectCollision(player, object) {
   //   }
 
   if (
-    playerBottom <= objectTop + 50 &&
-    playerBottom + player.velocity.y >= objectTop + 50 &&
+    playerBottom <= objectTop + colisionGap &&
+    playerBottom + player.velocity.y >= objectTop + colisionGap &&
     playerRight - 70 >= objectLeft &&
     playerLeft + 70 <= objectRight
   ) {
