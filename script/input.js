@@ -12,9 +12,17 @@ export class InputHandler {
           break;
         //ESPACE key
         case 32:
-          console.log(game.player.velocity);
-          if (game.player.velocity.y === 0) game.player.jump();
-          if (game.player.isInJump) game.player.plane();
+          if (!game.player.isInJump) {
+            console.log(game.player.velocity);
+            if (game.player.velocity.y === 0) game.player.jump();
+          }
+
+          if (!game.player.parachuteActivated) {
+            console.log(game.player.velocity);
+            if (game.player.isInJump) game.player.plane();
+          } else if (game.player.parachuteActivated) {
+            game.player.parachuteActivated = false;
+          }
           break;
         //DOWN key
         case 40:

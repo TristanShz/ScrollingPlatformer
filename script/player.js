@@ -62,7 +62,6 @@ export class Player {
 
   plane() {
     this.parachuteActivated = true;
-    this.gravity = 0.15;
   }
   stop() {
     this.velocity.x = 0;
@@ -78,9 +77,10 @@ export class Player {
       this.isInJump = false;
     }
     //update position
-    this.position.y += this.velocity.y;
-    this.position.x += this.velocity.x;
+    if (this.position.y + this.velocity.y !== 0)
+      this.position.y += this.velocity.y;
     this.velocity.y += this.gravity;
+    this.position.x += this.velocity.x;
 
     //If player is on the ground or on a platform, stop decreasing velocity
     this.game.platforms.forEach((element) => {
@@ -102,10 +102,12 @@ export class Player {
     //Player is in the air, parachute is not activated and direction is right : Jump position
     if (this.isInJump && !this.parachuteActivated && this.direction === 1) {
       this.currentSprite = this.spriteList.jump;
+      this.gravity = 0.5;
     }
     //Player is in the air, parachute is not activated and direction is left : Reverse jump position
     if (this.isInJump && !this.parachuteActivated && this.direction === 2) {
       this.currentSprite = this.spriteList.reverseJump;
+      this.gravity = 0.5;
     }
     //Player is moving right side : Walk position
     if (this.velocity.x > 0 && this.velocity.y === 0 && this.direction === 1) {
@@ -119,13 +121,17 @@ export class Player {
     //Player is in the air, parachute is activated and direction is right : Parachute position
     if (this.isInJump && this.parachuteActivated && this.direction === 1) {
       this.currentSprite = this.spriteList.spriteParachute;
+      this.gravity = 0.15;
     }
 
     //Player is in the air, parachute is activated and direction is left : Reverse parachute position
     if (this.isInJump && this.parachuteActivated && this.direction === 2) {
       this.currentSprite = this.spriteList.reverseParachute;
+      this.gravity = 0.15;
     }
     //Setting limit for the player movement and that's where the background start scrolling
+
+    //Right limit
     if (this.position.x + this.velocity.x > 400) {
       this.position.x = 400;
       this.game.platforms.forEach((element) => {
@@ -134,6 +140,8 @@ export class Player {
       this.game.foreground.position.x -= this.speed + 2;
       this.game.background.position.x -= this.speed - 2;
     }
+
+    //Left limit
     if (this.position.x < 100 && this.game.background.position.x < 0) {
       this.position.x = 100;
       this.game.platforms.forEach((element) => {
