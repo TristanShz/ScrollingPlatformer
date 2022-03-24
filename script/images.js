@@ -1,12 +1,17 @@
-function createImage(src) {
-  const img = new Image();
-  img.src = src;
-  return img;
-}
-
 export const images = {
-  platform: createImage("./assets/platform.png"),
-  ground: createImage("./assets/ground.png"),
-  littleHill: createImage("./assets/littleHill.png"),
-  highHill: createImage("./assets/highHill.png"),
+  background: "./assets/background.png",
+  foreground: "./assets/foreground.png",
+  ground: "./assets/ground.png",
+  highHill: "./assets/highHill.png",
+  smallHill: "./assets/smallHill.png",
+  parseGround: "./assets/parseGround.png",
+  platform: "./assets/platform.png",
+  reverseIdle: "./assets/reverseIdle.png",
+  reverseJump: "./assets/reverseJump.png",
+  reverseParachute: "./assets/reverseParachute.png",
+  reverseWalk: "./assets/reverseWalk.png",
+  spriteIdle: "./assets/spriteIdle.png",
+  spriteJump: "./assets/spriteJump.png",
+  spriteParachute: "./assets/spriteParachute.png",
+  spriteWalk: "./assets/spriteWalk.png",
 };

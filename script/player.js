@@ -62,7 +62,7 @@ export class Player {
 
   plane() {
     this.parachuteActivated = true;
-    this.gravity = 0.1;
+    this.gravity = 0.15;
   }
   stop() {
     this.velocity.x = 0;
